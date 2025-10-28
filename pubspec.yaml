@@ -25,7 +25,6 @@ flutter:
   - 'assets/'
   - 'assets/apk/'
   - 'assets/svg/'
-  - 'assets/webp/'
 
   fonts:
     - family: Montserrat
