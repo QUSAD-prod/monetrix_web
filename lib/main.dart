@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:monetrix_web/core/consts.dart';
 import 'package:sizer/sizer.dart';
-import 'package:web/web.dart' hide Text;
+import 'dart:html' as html;
 
 import 'package:monetrix_web/core/theme/app_colors.dart';
 import 'package:monetrix_web/core/theme/app_text_styles.dart';
@@ -39,16 +39,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   static const String _apkFileName = '$fileName$versionType$fileVer.apk';
-  static const String _apkDownloadUrl = 'assets/apk/$_apkFileName';
 
   void _downloadFile() {
-    final anchor = HTMLAnchorElement();
-    anchor.href = _apkDownloadUrl;
-    anchor.download = _apkFileName;
-    anchor.style.display = 'none';
-    document.body?.append(anchor);
-    anchor.click();
-    anchor.remove();
+    html.AnchorElement(href: 'assets/assets/apk/$_apkFileName')
+      ..download = _apkFileName
+      ..click();
   }
 
   @override
